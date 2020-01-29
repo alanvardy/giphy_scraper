@@ -3,12 +3,12 @@ defmodule GiphyScraper do
   alias GiphyScraper.{GiphyImage, Request}
 
   @doc "Use the search endpoint with a query and an optional quantity"
-  @spec search(String.t()) :: [GiphyImage.t()]
+  @spec search(String.t()) :: {:ok, [GiphyImage.t()]}
   def search(query, quantity \\ 25) do
     with {:ok, body} <- Request.search_endpoint(query, quantity),
          {:ok, content} <- Poison.decode(body),
          {:ok, images} <- Map.fetch(content, "data") do
-      Enum.map(images, &GiphyImage.convert/1)
+      {:ok, Enum.map(images, &GiphyImage.convert/1)}
     else
       {:error, message} -> {:error, message}
       :error -> {:error, "Data key not found in content"}
