@@ -1,21 +1,9 @@
 # GiphyScraper
 
-**TODO: Add description**
+It makes a request to Giphy and returns a list of GiphyImage structs.
 
-## Installation
+## Installation and Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `giphy_scraper` to your list of dependencies in `mix.exs`:
+Add your own config/config.exs with the Giphy api key (see example)
 
-```elixir
-def deps do
-  [
-    {:giphy_scraper, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/giphy_scraper](https://hexdocs.pm/giphy_scraper).
-
+Get started with `GiphyScraper.search("cats")`
